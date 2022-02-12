@@ -1,11 +1,6 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { emptySplitApi } from "../baseFetchApi";
 
-export const contactsApi = createApi({
-  reducerPath: "contactsApi",
-  baseQuery: fetchBaseQuery({
-    baseUrl: "https://61fef84d5e1c4100174f6dae.mockapi.io/contacts",
-  }),
-  tagTypes: ["CONTACT"],
+export const contactsApi = emptySplitApi.injectEndpoints({
   endpoints: (build) => ({
     getContacts: build.query({
       query: () => "/contacts",
@@ -19,20 +14,17 @@ export const contactsApi = createApi({
               { type: "CONTACT", id: "LIST" },
             ]
           : [{ type: "CONTACT", id: "LIST" }],
-      // an error occurred, but we still want to refetch this query when
-      // `{ type: 'Posts', id: 'LIST' }` is invalidated
     }),
+
     addContact: build.mutation({
       query: (contact) => ({
-        url: `/contacts`,
+        url: "/contacts",
         method: "POST",
-        body: { name: contact.name, phone: contact.number },
+        body: contact,
       }),
       invalidatesTags: ["CONTACT"],
-      // не перерендеруються контакти на сторінці, хоча на беку - так
-      //   (result, error, contact) => [
-      //   { type: "CONTACT", contact, error: error.message, data: result }],
     }),
+
     deleteContact: build.mutation({
       query: (contactId) => ({
         url: `/contacts/${contactId}`,
@@ -40,6 +32,7 @@ export const contactsApi = createApi({
       }),
       invalidatesTags: (contactId) => [{ type: "CONTACT", contactId }],
     }),
+    overrideExisting: false,
   }),
 });
 

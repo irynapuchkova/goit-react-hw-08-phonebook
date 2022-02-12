@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
-import { addFilter } from "../../redux/contacts/contacts-reducer";
+import { addFilter } from "../../../redux/contacts/contacts-slice";
+
 import { Title, Input, Wrapper } from "./Filter.styled";
 
 function Filter() {

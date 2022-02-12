@@ -1,9 +1,10 @@
 import shortid from "shortid";
 import { useState } from "react";
+
 import {
   useAddContactMutation,
   useGetContactsQuery,
-} from "../../redux/contacts/contacts-actions/fetchContacts";
+} from "../../../redux/contacts/contacts-operations";
 
 import { Form, Input, BtnSubmit } from "./ContactForm.styled";
 

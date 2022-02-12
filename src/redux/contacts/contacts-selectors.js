@@ -1,4 +1,4 @@
-const filter = (state) => state.contacts.filter;
+const filter = (state) => state.contacts;
 
 const selectors = { filter };
 

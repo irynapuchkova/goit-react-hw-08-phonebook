@@ -1,20 +1,22 @@
+import { useSelector } from "react-redux";
+
 import {
   useDeleteContactMutation,
   useGetContactsQuery,
-} from "../../redux/contacts/contacts-actions/fetchContacts";
-import { useSelector } from "react-redux";
-import selectors from "../../redux/contacts/contacts-selectors";
+} from "../../../redux/contacts/contacts-operations";
+import selectors from "../../../redux/contacts/contacts-selectors";
 
 import {
   BtnDelete,
   ContactsList,
   Contact,
   ContactData,
-} from "./ContactList.styled";
+} from "./ContactsList.styled";
 
 function ContactList() {
   const [deleteContact] = useDeleteContactMutation();
   const { data: contacts, isFetching } = useGetContactsQuery();
+
   const filter = useSelector(selectors.filter);
 
   let visibleContacts = null;
