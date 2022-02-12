@@ -35,36 +35,7 @@ export const userApi = emptySplitApi.injectEndpoints({
       query: () => ({
         url: `/users/current`,
       }),
-      // async onQueryStarted(
-      //   headers,
-      //   { getState, queryFulfilled, rejectWithValue }
-      // ) {
-      //   const state = getState();
-      //   const persistedToken = state.auth.token;
-
-      //   if (!persistedToken) {
-      //     return rejectWithValue();
-      //   }
-      //   headers = { authorization: `Bearer ${persistedToken}` };
-
-      //   try {
-      //     const { data } = await queryFulfilled;
-      //     return data;
-      //   } catch (err) {
-      //     alert("Please log in");
-      //   }
-      // },
       invalidatesTags: ["USER"],
-      // providesTags: (result) =>
-      //   result
-      //     ? [
-      //         ...result.map(({ userId }) => ({
-      //           type: "CONTACT",
-      //           userId,
-      //         })),
-      //         { type: "USER", id: "LIST" },
-      //       ]
-      //     : [{ type: "USER", id: "LIST" }],
     }),
 
     overrideExisting: false,
