@@ -37,10 +37,10 @@ function ContactList() {
     <ContactsList>
       {isFetching && <p>Loading...</p>}
       {contacts &&
-        visibleContacts.map(({ id, name, phone }) => (
+        visibleContacts.map(({ id, name, number }) => (
           <Contact key={id}>
             <ContactData>{name}</ContactData>
-            <ContactData>{phone}</ContactData>
+            <ContactData>{number}</ContactData>
             <BtnDelete type="button" onClick={() => deleteContact(id)}>
               Delete
             </BtnDelete>
