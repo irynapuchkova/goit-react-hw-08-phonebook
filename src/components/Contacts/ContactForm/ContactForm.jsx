@@ -1,4 +1,3 @@
-import shortid from "shortid";
 import { useState } from "react";
 
 import {
@@ -28,7 +27,7 @@ function ContactForm() {
     e.preventDefault();
 
     const contactsData = data;
-    const contact = { id: shortid.generate(), name, number };
+    const contact = { name, number };
     const existedNames = contactsData.map((contact) => contact.name);
 
     if (existedNames.includes(contact.name)) {

@@ -2,8 +2,8 @@ import { lazy, Suspense, useEffect } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import PrivateRoute from "../Routes/PrivateRoute";
-import PublicRoute from "../Routes/PublicRoute";
+import PrivateRoute from "../routes/PrivateRoute";
+import PublicRoute from "../routes/PublicRoute";
 import authSelectors from "../../redux/auth/auth-selectors";
 import { useGetCurrentUserMutation } from "../../redux/auth/auth-operations";
 
