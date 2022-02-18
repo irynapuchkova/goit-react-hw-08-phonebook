@@ -19,8 +19,7 @@ const Welcome = styled.span`
 const Button = styled.button`
   width: 80px;
   height: 32px;
-  border: 2px solid;
-  border-color: transparent;
+  border: 2px solid transparent;
   background-color: tomato;
   cursor: pointer;
 `;

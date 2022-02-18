@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { useRegisterUserMutation } from "../redux/auth/auth-operations";
+import { useRegisterUserMutation } from "../../redux/auth/auth-operations";
 
 import styled from "@emotion/styled";
 
@@ -18,22 +18,21 @@ const Form = styled.form`
 `;
 
 const Input = styled.input`
-  box-shadow: inset 0px 1px 0px 0px #3985b1;
+  box-shadow: inset 0 1px 0 0 #3985b1;
   background-color: #d5f6ef;
   border: 1px solid #1db374;
   display: inline-block;
-  cursor: pointer;
-  color: #black;
+  color: black;
   padding: 8px 18px;
   text-decoration: none;
   font: 12px Arial, Helvetica, sans-serif;
+  cursor: cursor;
 `;
 
 const Button = styled.button`
   width: 100px;
   height: 32px;
-  border: 2px solid;
-  border-color: transparent;
+  border: 2px solid transparent;
   background-color: #83d426;
   cursor: pointer;
 `;
@@ -43,7 +42,7 @@ export default function RegisterView() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const [registerUser, results] = useRegisterUserMutation();
+  const [registerUser] = useRegisterUserMutation();
 
   const resetState = () => {
     setName("");
@@ -75,35 +74,32 @@ export default function RegisterView() {
   };
 
   return (
-    <>
-      <Form onSubmit={handleSubmit}>
-        <Input
-          type="text"
-          name="name"
-          placeholder="Name"
-          required
-          value={name}
-          onChange={handleChange}
-        />
-        <Input
-          type="email"
-          name="email"
-          placeholder="Email"
-          required
-          value={email}
-          onChange={handleChange}
-        />
-        <Input
-          type="password"
-          name="password"
-          placeholder="Password min 7 smbs"
-          required
-          value={password}
-          onChange={handleChange}
-        />
-        <Button type="submit">Register</Button>
-      </Form>
-      ;
-    </>
+    <Form onSubmit={handleSubmit}>
+      <Input
+        type="text"
+        name="name"
+        placeholder="Name"
+        required
+        value={name}
+        onChange={handleChange}
+      />
+      <Input
+        type="email"
+        name="email"
+        placeholder="Email"
+        required
+        value={email}
+        onChange={handleChange}
+      />
+      <Input
+        type="password"
+        name="password"
+        placeholder="Password min 7 smbs"
+        required
+        value={password}
+        onChange={handleChange}
+      />
+      <Button type="submit">Register</Button>
+    </Form>
   );
 }

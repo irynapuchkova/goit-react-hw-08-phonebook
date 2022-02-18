@@ -1,11 +1,11 @@
 import { useSelector } from "react-redux";
 import styled from "@emotion/styled";
 
-import Section from "../components/Contacts/Section/Section";
-import ContactsList from "../components/Contacts/ContactsList/ContactsList";
-import ContactForm from "../components/Contacts/ContactForm/ContactForm";
-import Filter from "../components/Contacts/Filter/Filter";
-import authSelectors from "../redux/auth/auth-selectors";
+import Section from "../contacts/Section/Section";
+import ContactsList from "../contacts/ContactsList/ContactsList";
+import ContactForm from "../contacts/ContactForm/ContactForm";
+import Filter from "../contacts/Filter/Filter";
+import authSelectors from "../../redux/auth/auth-selectors";
 
 const FormSet = styled.div`
   font: 95% Arial, Helvetica, sans-serif;

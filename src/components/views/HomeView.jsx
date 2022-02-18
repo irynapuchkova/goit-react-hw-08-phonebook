@@ -1,7 +1,7 @@
 import { FcGlobe } from "react-icons/fc";
 import { useSelector } from "react-redux";
 
-import authSelectors from "../redux/auth/auth-selectors";
+import authSelectors from "../../redux/auth/auth-selectors";
 
 import styled from "@emotion/styled";
 

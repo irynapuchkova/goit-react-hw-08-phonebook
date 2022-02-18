@@ -7,20 +7,20 @@ import PublicRoute from "../Routes/PublicRoute";
 import authSelectors from "../../redux/auth/auth-selectors";
 import { useGetCurrentUserMutation } from "../../redux/auth/auth-operations";
 
-import AppBar from "../AppBar/AppBar";
-import Container from "../Container";
+import AppBar from "../navBar/AppBar";
+import Container from "../Container/Container";
 
 const HomeView = lazy(() =>
-  import("../../views/HomeView" /* webpackChunkName: 'home-view'*/)
+  import("../views/HomeView" /* webpackChunkName: 'home-view'*/)
 );
 const ContactsView = lazy(() =>
-  import("../../views/ContactsView" /* webpackChunkName: 'contacts-view'*/)
+  import("../views/ContactsView" /* webpackChunkName: 'contacts-view'*/)
 );
 const LoginView = lazy(() =>
-  import("../../views/LoginView" /* webpackChunkName: 'login-view'*/)
+  import("../views/LoginView" /* webpackChunkName: 'login-view'*/)
 );
 const RegisterView = lazy(() =>
-  import("../../views/RegisterView" /* webpackChunkName: 'register-view'*/)
+  import("../views/RegisterView" /* webpackChunkName: 'register-view'*/)
 );
 
 export default function App() {
@@ -34,9 +34,9 @@ export default function App() {
         <AppBar />
       </Container>
 
-      {isRefreshingCurrentUser ? (
-        <p>Refreshing data ...</p>
-      ) : (
+      {isRefreshingCurrentUser && <p>Refreshing data ...</p>}
+
+      {!isRefreshingCurrentUser && (
         <Container>
           <Suspense fallback={<>Loading...</>}>
             <Routes>
